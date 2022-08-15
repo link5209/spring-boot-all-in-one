@@ -20,4 +20,15 @@ public class ControllerExceptionHandler {
                 request.getDescription(true)
         );
     }
+
+    @ExceptionHandler(BadRequestException.class)
+    @ResponseStatus(value = HttpStatus.BAD_REQUEST)
+    public ErrorMessage badRequestException(ResourceNotFoundException ex, WebRequest request) {
+        return new ErrorMessage(
+                HttpStatus.BAD_REQUEST.value(),
+                new Date(),
+                ex.getMessage(),
+                request.getDescription(true)
+        );
+    }
 }
