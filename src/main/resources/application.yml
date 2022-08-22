@@ -32,6 +32,14 @@ spring:
     properties:
       hibernate:
         dialect: org.hibernate.dialect.MySQL5Dialect
+# 配置mybatis
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+  # 全局的映射，不用在xml文件写实体类的全路径
+  type-aliases-package: com.springboot.allinone.pojo
+  configuration:
+    # 开启驼峰映射
+    map-underscore-to-camel-case: true
 jwt:
   header: Authorization
   secret: mySecret
